@@ -1,0 +1,81 @@
+.orders {
+  padding: 32px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.orders-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-card {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.order-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #222;
+}
+
+.order-mode {
+  margin-top: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  width: fit-content;
+}
+
+.order-mode.buy {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+}
+
+.order-mode.sell {
+  background-color: #fcebea;
+  color: #c62828;
+}
+
+.order-details p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.label {
+  font-weight: 500;
+  color: #777;
+}

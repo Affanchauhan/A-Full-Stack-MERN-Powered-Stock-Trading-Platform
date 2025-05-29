@@ -1,0 +1,338 @@
+.container {
+  --radius: 8px;
+  --primary-color: #4184f3;
+  --primary-hover: #74a7fa;
+  --text-color: #333;
+  --light-text: #777;
+  --border-color: #e0e0e0;
+  --background: #fff;
+  --grey-btn: #f0f0f0;
+  --grey-btn-hover: #e0e0e0;
+  
+  width: 380px;
+  background: var(--background);
+  position: absolute;
+  cursor: default;
+  box-sizing: border-box;
+  z-index: 100;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.container.dragging {
+  opacity: 0.95;
+  cursor: grabbing;
+}
+
+.container .header {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color), #5a95f5);
+  box-sizing: border-box;
+  padding: 14px 16px;
+  color: white;
+  cursor: move;
+  user-select: none;
+}
+
+.header h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.header h3 span {
+  font-size: 0.7rem;
+  font-weight: 400;
+  background: rgba(255,255,255,0.2);
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+.market-options {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+}
+
+.market-options label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.market-options input[type="radio"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 50%;
+  margin-right: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.market-options input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+}
+
+.tab {
+  width: 100%;
+  display: flex;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab button {
+  border: none;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.tab button:hover {
+  background: rgba(65, 132, 243, 0.1);
+}
+
+.tab button:first-child {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.tab button:first-child::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.regular-order {
+  padding: 16px 20px;
+  background-color: var(--background);
+}
+
+.order-validity {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.order-validity label {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.order-validity label span {
+  color: var(--light-text);
+  margin-left: 4px;
+}
+
+.order-validity input[type="radio"] {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  margin-right: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.order-validity input[type="radio"]:checked {
+  border-color: var(--primary-color);
+}
+
+.order-validity input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+
+.inputs {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.inputs fieldset {
+  flex: 1;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.inputs fieldset.active {
+  border-color: var(--primary-color);
+}
+
+.inputs fieldset legend {
+  margin-left: 8px;
+  font-size: 0.75rem;
+  color: var(--light-text);
+  padding: 0 4px;
+}
+
+.inputs fieldset input {
+  width: 100%;
+  border: none;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.inputs fieldset input:focus {
+  outline: none;
+}
+
+.quantity-buttons, .price-buttons {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quantity-buttons button, .price-buttons button {
+  width: 20px;
+  height: 16px;
+  border: none;
+  background: var(--grey-btn);
+  color: var(--text-color);
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0;
+  line-height: 1;
+}
+
+.quantity-buttons button:hover, .price-buttons button:hover {
+  background: var(--grey-btn-hover);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.options span {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.options span:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-color);
+  background: #fafafa;
+}
+
+.buttons span {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-grey {
+  background: var(--grey-btn);
+  color: var(--text-color);
+  margin-right: 8px;
+}
+
+.btn-blue {
+  background: var(--primary-color);
+  color: white;
+  min-width: 100px;
+}
+
+.btn-blue:hover {
+  background: var(--primary-hover);
+}
+
+.btn-grey:hover {
+  background: var(--grey-btn-hover);
+}
+
+.btn-blue:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Animation for button click */
+@keyframes buttonClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.btn:active {
+  animation: buttonClick 0.2s ease;
+}
+
+.btn-blue:active,
+.btn-grey:active {
+  transform: scale(0.98);
+}

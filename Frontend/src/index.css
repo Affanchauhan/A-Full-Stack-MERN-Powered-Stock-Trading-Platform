@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add these styles to your CSS file */
+.support-hero {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.support-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.search-container input::placeholder {
+  color: #999;
+  font-size: 0.95rem;
+}
+
+.featured-list li {
+  counter-increment: list-counter;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.featured-list li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: 0;
+  color: white;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .support-hero {
+    padding: 1rem 0;
+  }
+
+  .support-header {
+    padding: 0 1rem;
+  }
+
+  .row.py-5 {
+    padding: 2rem 1rem !important;
+  }
+
+  .col-md-6 {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+}
